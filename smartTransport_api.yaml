@@ -1,0 +1,64 @@
+openapi: 3.0.1
+info:
+  title: PoolTwo Optimization API
+  version: 1.0.0
+  description: |
+    Cette API permet de lancer une optimisation de pooling de commandes à partir
+    d’un fichier JSON contenant les informations de pick-up.
+servers:
+  - url: http://localhost:8080
+    description: Serveur local
+
+paths:
+  /api/optimize:
+    post:
+      summary: Optimiser les courses depuis un fichier JSON
+      operationId: optimizeFromFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Fichier JSON des commandes à optimiser
+      responses:
+        '200':
+          description: Réponse JSON avec les courses regroupées
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '400':
+          description: Requête invalide ou fichier manquant
+        '500':
+          description: Erreur serveur lors du traitement du fichier
+
+components:
+  schemas:
+    Commande:
+      type: object
+      properties:
+        id:
+          type: integer
+        pickupTime:
+          type: string
+          format: date-time
+        location:
+          type: object
+          properties:
+            lat:
+              type: number
+              format: float
+            lon:
+              type: number
+              format: float
+      required:
+        - id
+        - pickupTime
+        - location

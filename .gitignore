@@ -1,0 +1,68 @@
+#############################
+# === Eclipse / IntelliJ ===
+#############################
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+#############################
+# === Maven build files ===
+#############################
+target/
+out/
+build/
+
+#############################
+# === OS-specific files ===
+#############################
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+#############################
+# === Spring Boot / App ===
+#############################
+# fichiers sensibles ou temporaires
+logs/
+*.pid
+*.csv
+*.json
+*.pbf
+
+#############################
+# === GraphHopper & Data ===
+#############################
+# OSM et graph généré (fichiers lourds)
+src/main/resources/belgium-latest.osm.pbf
+src/main/resources/graphhopper/graphHopperCompiler/*
+src/main/resources/graphopper/grahHopperCompiler/*
+# (au cas où les deux orthographes existent)
+
+#############################
+# === IDE Metadata ===
+#############################
+.metadata/
+bin/
+
+#############################
+# === Backup ===
+#############################
+*.orig
+*.rej
+*.bak
+
+
+target/
+*.pbf
+src/main/resources/graphhopper/
+src/main/resources/graphopper/
+.idea/
+*.log
